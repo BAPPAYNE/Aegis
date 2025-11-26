@@ -19,6 +19,7 @@ CMakeUserPresets.json
 #cmake-build-*
 
 update.res
+update.aps
 .vscode
 x64
 Release
