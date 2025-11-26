@@ -3,6 +3,7 @@
 
 #include <windows.h>
 #include <stdint.h>
+#include "dtypes.h"
 
 
 int GetSystemInfoDetails(struct SystemInfoStructure* sysInfo);
@@ -19,7 +20,7 @@ char* get_EnvironmentVariables();
 char* get_EnvironmentStrings();
 uint8_t get_ProcessorCount();
 uint64_t get_TotalPhysicalMemory();
-SystemInfoStructure::ipAddressMac get_NetworkInfo();
+ipAddressMac get_NetworkInfo();
 
 
 

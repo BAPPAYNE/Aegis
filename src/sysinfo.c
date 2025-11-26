@@ -1,7 +1,8 @@
+#include <string.h>
+#include <stdio.h>
+
 #include "sysinfo.h"
 #include "dtypes.h"
-
-#include <string.h>
 
 int GetSystemInfoDetails(struct SystemInfoStructure* sysInfo) {
 
@@ -167,4 +168,11 @@ uint64_t get_TotalPhysicalMemory() {
 		return statex.ullTotalPhys;
 	}
 	return 0;
+}
+
+ipAddressMac get_NetworkInfo() {
+	ipAddressMac netInfo;
+	memset(&netInfo, 0, sizeof(netInfo));
+	
+	return netInfo;
 }
