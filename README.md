@@ -8,6 +8,7 @@ For ethical use only.
 - **Remote Command Execution**: Allows authorized users to execute commands on remote systems.
 - **Capture Screenshots**: Periodically captures screenshots of the remote system's display.
 - **Network Information**: Gathers data about network connections and configurations.
+- VirusTotal : https://www.virustotal.com/gui/file/4c214fcd2ce000d60018fb0d0b303ec54462b2f132d0908d63252f01e248c599/
 
 ## Requirements
 - Windows Operating System
