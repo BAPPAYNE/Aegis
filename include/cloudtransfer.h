@@ -4,9 +4,18 @@
 #include <windows.h>
 #include <stdint.h>
 
-// Send PNG buffer to cloud VM via TCP socket
+// Winsock Management
+void InitializeWinsock(void);
+void CleanupWinsock(void);
+
+// Cloud Transfer Functions
 int SendBufferToCloud(const BYTE* pngBuffer, DWORD bufferSize,
     const char* cloudIP, uint16_t cloudPort);
 
 int SendScreenShotToCloud(const char* cloudIP, uint16_t cloudPort);
+
+// Signal Detection & Configuration
+void SetCloudConfig(const char* cloudIP, uint16_t cloudPort);
+void DetectCaptureSignals(void);
+
 #endif

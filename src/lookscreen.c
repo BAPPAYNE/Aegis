@@ -5,7 +5,6 @@
 #pragma comment(lib, "windowscodecs.lib")
 
 
-
 // capture screen to HBITMAP
 HBITMAP CaptureScreenToHBITMAP(int sx, int sy, int sw, int sh) {
     HDC hdcScreen = GetDC(NULL);
@@ -137,3 +136,5 @@ int Save_Buffer_To_FIle(const BYTE *buffer, DWORD size, const char * filename) {
 
     return TRUE ;
 }
+
+
